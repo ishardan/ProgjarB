@@ -27,20 +27,34 @@ while True:
 # Wait for a connection
 # Receive the data in small chunks and retransmit it
 #while True:
-    data = connection.recv(512)
-    print >>sys.stderr, 'received "%s"' % data
+    #print >>sys.stderr, 'received "%s"' % data
 #if data:
-    print >>sys.stderr, 'sending data back to the client'
-    connection2.sendall(data)
+    #print >>sys.stderr, 'sending data back to the client'
+    #connection2.sendall(data)
+    data = connection.recv(512)
+    if not data :
+    	print >> sys.stderr, 'disconnect from client'
+    break    
+    else :
+    	print >>sys.stderr, 'received "%s"' % data
+    	print >>sys.stderr, 'sending data to clients'
+    	connection2.sendall(data)
 #else:
 #print >>sys.stderr, 'no more data from', client_address
 #break
-    data2 = connection2.recv(512)
-    print >>sys.stderr, 'received "%s"' % data2
+    #print >>sys.stderr, 'received "%s"' % data2
 #if data:
-    print >>sys.stderr, 'sending data back to the client'
-    connection.sendall(data2)
-                #else:
+    #print >>sys.stderr, 'sending data back to the client'
+    #connection.sendall(data2)
+    data2 = connection2.recv(512)
+    if not data2 :
+    	print >> sys.stderr, 'disconnect from clients'
+    break
+    else :
+    	print >>sys.stderr, 'received "%s"' % data2
+    	print >>sys.stderr, 'sending data to client'
+    	connection.sendall(data2)    
+    	connection.close()            #else:
                  #   print >>sys.stderr, 'no more data from', client_address
                   #  break
         # Clean up the connection
