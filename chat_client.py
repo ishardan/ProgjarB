@@ -47,7 +47,7 @@ def chat_client():
 				kata=len(temp1)
 				if temp1[0]=="login" :
 					if kata>2:
-						print('Username hanya satu kata saja')
+						print('Username tidak boleh lebih dari satu kata')
 					elif kata<2:
 						print('Masukkan username untuk login')
 					else:
@@ -55,19 +55,19 @@ def chat_client():
 
 				elif temp1[0]=="send" :
 					if kata<3:
-						print('Perintah salah')
+						print('Perintah salah!')
 					else:
 						s.send(temp)
 			
 				elif temp1[0]=="sendall" :
 					if kata<2:
-						print("Perintah salah")
+						print("Perintah salah!")
 					else:
 						s.send(temp)
 		
 				elif temp1[0]=="list" :
 					if kata>1:
-						print('Perintah salah')
+						print('Perintah salah!')
 					else:
 						s.send(temp)
 				else:
