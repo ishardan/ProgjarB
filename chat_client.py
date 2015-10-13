@@ -29,7 +29,7 @@ def chat_client():
 		for sock in ready_to_read:
 			if sock == s:
 				# incoming message from remote server, s
-				data = sock.recv(4096)
+				data = sock.recv(5000)
 				if not data :
 					print '\nAnda tidak terhubung'
 					sys.exit()
