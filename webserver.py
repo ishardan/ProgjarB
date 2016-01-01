@@ -39,7 +39,7 @@ class MemprosesClient(threading.Thread):
 class Server(threading.Thread):
 	def __init__(self):
 		self.my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		self.server_address = ('localhost',9986)
+		self.server_address = ('10.151.40.97',9135)
 		self.my_socket.bind(self.server_address)
 		threading.Thread.__init__(self)
 	
